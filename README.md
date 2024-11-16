@@ -60,3 +60,7 @@ Node.js simplifies creating and managing APIs for web and mobile applications.
 **Microservices:**
 
 It is widely used in building microservices due to its lightweight nature.
+
+## History of Node.js
+
+Node.js was created by Ryan Dahl in 2009, Node.js is built on the Google V8 JavaScript engine, which compiles JavaScript into highly optimized machine code, resulting in excellent performance.
