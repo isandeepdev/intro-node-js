@@ -25,6 +25,22 @@ Let’s say you’re running a Node.js server that processes multiple HTTP reque
 
 This allows the server to handle many requests simultaneously, without getting stuck on any single operation.
 
+**Non-blocking code example:**
+
+```js
+const getUsers = (callback) => {
+  const users = [{ name: "John" }, { name: "Scott" }];
+
+  setTimeout(() => {
+    callback(users);
+  });
+};
+
+getUser((users) => {
+  console.log(users);
+});
+```
+
 ## Other key features of Node.js
 
 **JavaScript Everywhere:**
@@ -64,3 +80,27 @@ It is widely used in building microservices due to its lightweight nature.
 ## History of Node.js
 
 Node.js was created by Ryan Dahl in 2009, Node.js is built on the Google V8 JavaScript engine, which compiles JavaScript into highly optimized machine code, resulting in excellent performance.
+
+## Disadvantages of Node.js
+
+**Single thread nature:**
+
+Issue: Node.js runs on a single thread for handling user requests, which can be a bottleneck for CPU-intensive tasks like complex computations, data processing, or machine learning.
+
+Why: While non-blocking I/O is great for handling many requests concurrently, a single-threaded model can struggle with tasks requiring significant CPU time.
+
+Mitigation: Use worker threads, child processes, or offload CPU-intensive tasks to specialized services.
+
+**Rapidly Changing Ecosystem:**
+
+Issue: The Node.js ecosystem evolves quickly, which can make it challenging to keep up with updates, new tools, and best practices. Some frameworks and libraries may become obsolete.
+
+Mitigation: Stay informed about changes and updates, and focus on widely adopted and well-supported tools.
+
+**Scalability Challenges:**
+
+Issue: While Node.js handles many simultaneous connections efficiently, scaling across multiple cores requires additional effort. Native support for multi-threading is limited (though worker threads have improved this).
+
+Mitigation: Use clustering (e.g., cluster module) or deploy applications in containers/services that can handle scaling across machines.
+
+👉 While Node.js has its drawbacks, many of these issues can be mitigated with good practices, modern tools, and complementary technologies.
